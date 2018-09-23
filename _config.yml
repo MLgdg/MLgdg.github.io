@@ -12,7 +12,7 @@ github_repo: "https://github.com/MLgdg/MLgdg.github.io.git" # you code repositor
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "get busy living or get busy dying!"
-sidebar-avatar: /img/高庆东.png      # use absolute URL, seeing it's used in both `/` and `/about/` 头像设置
+sidebar-avatar: /img/微信截图_20180923144102.png      # use absolute URL, seeing it's used in both `/` and `/about/` 头像设置
 
 
 
