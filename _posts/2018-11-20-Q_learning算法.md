@@ -1,8 +1,7 @@
-
 ---
 layout:     post
 title:      Q-learning算法
-subtitle:   
+subtitle:  
 date:       2018-11-20
 author:     高庆东
 header-img: img/ceshi.jpg
@@ -10,8 +9,8 @@ catalog: true
 tags:
     - 强化学习
     - python
+    - 损失函数
     - Q-learning
-    - 误差
 ---
 
 ## 强化学习
