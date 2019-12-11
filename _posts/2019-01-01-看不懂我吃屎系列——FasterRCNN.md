@@ -34,7 +34,7 @@ FasterRCNN主要是是用来做目标检测，具体说就是一张图片上有�
 大概使用pytorch构建的模型就长这B样，每个MaxPooling都会使输出的图片相对原始图片缩减2倍
 
 
-`
+```
 class VGG16(nn.Module):
     def __init__(self, bn=False):
         super(VGG16, self).__init__()
@@ -71,7 +71,7 @@ class VGG16(nn.Module):
         x = self.conv5(x)
         return x
         
-`
+```
 最后的结果是一张3通道的图片变成512通道的图片，这部分提取的特征需要进行保留，以后用。  
 ### RPN 网络
 这部分主要是筛选出框，和每个框是前景的概率
@@ -79,7 +79,7 @@ class VGG16(nn.Module):
 VGG的输出就是锚点，featuremap上每个点都是锚点，然后以锚点为中心画框，有三种不同的面积和三种不同长宽比，一个锚点会有9个框   
 已知一张原始图片经过VGG后会缩小原来的N倍，所以将所有框的大小扩展N倍，得到锚点在原始图片上所有的框。
 
-`
+```
 def generate_anchors(base_size=16, ratios=[0.5, 1, 2],   #生成锚点在原图上的框
                      scales=2**np.arange(3, 6)):
     base_anchor = np.array([1, 1, base_size, base_size]) - 1
@@ -116,7 +116,7 @@ def _scale_enum(anchor, scales):  #相对原图缩放
     anchors = _mkanchors(ws, hs, x_ctr, y_ctr)
     return anchors  #返回不同尺寸的在原图上同一宽高比的框
 
-`
+```
 #### 通过锚点框得到预测框
 
 #### 筛选预测框
