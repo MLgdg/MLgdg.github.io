@@ -1,0 +1,27 @@
+---
+layout:     post
+title:      看不懂我吃屎系列——FasterRCNN
+subtitle:   
+date:       2019-01-01
+author:     高庆东
+header-img: img/ceshi.jpg
+catalog: true
+tags:
+    - FasterRCNN
+    - 目标检测
+    - RPN
+    - 非极大值抑制
+    - ROIpooling
+    - VGG16
+    -
+    - python
+
+---
+
+看到不懂我吃屎
+先整体介绍一下，他是干嘛的，和前提条件，输入时啥输出是啥，然后分别详细介绍，每个功能块的作用，最后介绍如何将这些功能块连接起来
+
+### 整体功能
+FasterRCNN主要是是用来做目标检测，具体说就是一张图片上有多个物体，FasterRCNN可以将物体以矩形框的形式框出来同时识别出框出来的物体是啥。  
+但是前提是，首先是固定的物体类别，不能有未知的物体。输出结果是框的坐标和每个框的类别。  
+![框架](https://img-blog.csdnimg.cn/20191105195802765.png)
