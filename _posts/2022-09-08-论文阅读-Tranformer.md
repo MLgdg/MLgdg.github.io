@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Loss
+title:      论文阅读-Tranformer
 subtitle:   
 date:       2022-09-07
 author:     高庆东
