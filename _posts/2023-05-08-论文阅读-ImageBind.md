@@ -88,7 +88,10 @@ audio_stem = PatchEmbedGeneric(
 ``` 
 
 ## text模态
-自回归模型
+文本模态就是自回归模型 CLIP文本端
 ## depth模态
+和图像一样
 ## 红外模态
+和图像一样
 ## 坐标模态
+
