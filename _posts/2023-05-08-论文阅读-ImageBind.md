@@ -66,7 +66,25 @@ class PatchEmbedGeneric(nn.Module):
 """
 
 ## audio模态
-对音频分段然后提取mel特征，使用2d卷积扩展
+对音频分段然后提取Fbank特征，论文中使用的每段2秒中 一共3段（有交叉）  
+输出音频128\*204，其中128是mel滤波器数量，204是输出帧数，最终的输出  
+3\*1\*128\*204其中3表示3段音频。每段音频可以单独看成一条数据，  
+在最后处理中用均值合并， 使用2d卷积对频谱图切片  
+
+"""  
+audio_stem = PatchEmbedGeneric(
+    proj_stem=[
+        nn.Conv2d(
+            in_channels=1,
+            kernel_size=audio_kernel_size, #16
+            stride=audio_stride, #10
+            out_channels=audio_embed_dim, #768
+            bias=False,
+        ),
+    ],
+    norm_layer=nn.LayerNorm(normalized_shape=audio_embed_dim),
+)
+"""  
 
 ## text模态
 自回归模型
