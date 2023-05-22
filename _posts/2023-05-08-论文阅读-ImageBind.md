@@ -28,7 +28,7 @@ tags:
 B C (T) H W -> B T\*H\*W C  
 使用3d卷积展开   
 
-"""
+```
 class PatchEmbedGeneric(nn.Module):
 
     def __init__(self, proj_stem, norm_layer: Optional[nn.Module] = None):
@@ -63,7 +63,7 @@ class PatchEmbedGeneric(nn.Module):
         if self.norm_layer is not None:
             x = self.norm_layer(x)
         return x
-"""
+```
 
 ## audio模态
 对音频分段然后提取Fbank特征，论文中使用的每段2秒中 一共3段（有交叉）  
@@ -71,7 +71,7 @@ class PatchEmbedGeneric(nn.Module):
 3\*1\*128\*204其中3表示3段音频。每段音频可以单独看成一条数据，  
 在最后处理中用均值合并， 使用2d卷积对频谱图切片  
 
-"""  
+```
 audio_stem = PatchEmbedGeneric(
     proj_stem=[
         nn.Conv2d(
@@ -84,7 +84,7 @@ audio_stem = PatchEmbedGeneric(
     ],
     norm_layer=nn.LayerNorm(normalized_shape=audio_embed_dim),
 )
-"""  
+``` 
 
 ## text模态
 自回归模型
